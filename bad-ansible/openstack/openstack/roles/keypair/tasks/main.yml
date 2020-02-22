@@ -1,0 +1,7 @@
+---
+# tasks file for keypair
+- name: Creating a Keypair
+  os_keypair:
+     cloud: ospcloud
+     state: present
+     name: ansible_ssh

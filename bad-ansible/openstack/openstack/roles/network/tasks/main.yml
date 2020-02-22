@@ -1,0 +1,27 @@
+---
+# tasks file for network
+- name: Adding in floating IPs
+  os_floating_ip:
+     cloud: ospcloud
+     state: present
+     server: placeholderapps1
+     network: ext_network
+     nat_destination: private_net
+     wait: true
+     timeout: 180
+- name: Adding in Private Network
+  os_network:
+     cloud: ospcloud
+     state: present
+     name: int_network
+     admin_state_up: True
+     external: False
+- name: Adding in Private Network
+  os_subnet:
+     state: present
+     network_name: Private
+     name: int_network
+     cider: 20.20.20.0/24
+     allocation_pool_start: 20.20.20.1
+     allocation_pool_end: 20.20.20.252
+

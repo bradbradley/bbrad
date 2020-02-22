@@ -1,0 +1,46 @@
+---
+# tasks file for secgroup
+#- name: Creating Apps Project
+#  os_project:
+#     cloud: ospcloud
+#     state: present
+#     name: apps
+#     description: "Openstack Apps Project"
+#     endpoint_type: admin
+#     enabled: True
+#- name: Creating Apps Group
+#  os_group:
+#     cloud: ospcloud
+#     state: present
+#     name: apps
+#     description: "Openstack Apps Group"
+     
+- name: Creating Apps Sec Group
+  os_security_group:
+     cloud: ospcloud
+     state: present
+     #project: apps
+     name: apps
+- name: Adding in the ICMP rule
+  os_security_group_rule:
+     cloud: ospcloud
+     security_group: apps
+     protocol: icmp
+     remote_ip_prefix: 0.0.0.0/0
+     project: apps
+- name: Adding in the tcp 8080 rule
+  os_security_group_rule:
+     cloud: ospcloud
+     security_group: apps
+     portocol: tcp
+     port_range_min: 8080
+     port_range_max: 8080
+     remote_ip_prefix: 0.0.0.0/0
+- name: Adding in the tcp 22 rule
+  os_security_group_rule:
+     cloud: ospcloud
+     security_group: apps
+     portocol: tcp
+     port_range_min: 22
+     port_range_max: 22
+     remote_ip_prefix: 0.0.0.0/0

@@ -1,0 +1,32 @@
+- name: Deploy on OpenStack
+  hosts: localhost
+  gather_facts: false
+  tasks:
+   - name: launch app1
+     os_server:
+       cloud: ospcloud
+       state: present
+       name: app1
+       image: rhel-guest
+       key_name: ansible_ssh
+       wait: yes
+       flavor: m1.small
+       auto_ip: yes
+       network: int_network
+       meta:
+         hostname: app1
+         group: QA
+#  - name: Adding in the user data
+       userdata: |
+         #/bin/bash
+         curl -o /tmp/openstack.pub http://www.opentlc.com/download/ansible_bootcamp/openstack_keys/openstack.pub
+         cat /tmp/openstack.pub >> /home/cloud-user/.ssh/authorized_keys
+         curl -o /tmp/internal.repo http://www.opentlc.com/download/ansible_bootcamp/repo/internal.repo
+         cp /tmp/internal.repo /etc/yum.repos.d/internal.repo
+   - name: Adding the floating IP
+     os_floating_ip:
+       cloud: ospcloud
+       state: present
+       server: app1 
+       network: ext_network
+       wait: yes

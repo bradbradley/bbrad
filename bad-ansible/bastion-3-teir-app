@@ -1,0 +1,690 @@
+    1  ls .ssh/
+    2  cat .ssh/config 
+    3  cat >~/.ssh/config <<EOF
+    4  Host *.${GUID}.internal
+    5    IdentityFile ~/.ssh/${GUID}.pem
+    6    User ec2-user
+    7    StrictHostKeyChecking no
+    8  EOF
+    9  cat .ssh/config 
+   10  ssh frontend1.8f40.internal
+   11  vim .ssh/config 
+   12  ssh frontend1.8f40.internal
+   13  vim .ssh/config 
+   14  ssh frontend1.8f40.internal
+   15  ls
+   16  cd bad-ansible/
+   17  ls
+   18  vim main.yml 
+   19  export GUID=`hostname | awk -F"." '{print $2}'`
+   20  mkdir .ssh
+   21  sudo cp /root/.ssh/${GUID}key.pem ~/.ssh
+   22  sudo chown `whoami` ~/.ssh/${GUID}key.pem
+   23  sudo chmod 400 ~/.ssh/${GUID}key.pem
+   24  sudo cat /root/.ssh/${GUID}key.pem
+   25   ssh -i ~/.ssh/${GUID}key.pem  ec2-user@app1.${GUID}.example.opentlc.com
+   26  cp /etc/ansible/hosts ~/myinventory.file
+   27  ansible -i myinventory.file all -m ping -v
+   28  git clone https://github.com/bradbradley/bad-ansible.git
+   29  ls
+   30  cd bad-ansible/
+   31  cp /etc/yum.repos.d/open_three-tier-app.repo .
+   32  echo ${GUID}
+   33  ansible-playbook main.yml 
+   34  ssh frontend1
+   35  at >~/.ssh/config <<EOF
+   36  Host *.${GUID}.internal
+   37    IdentityFile ~/.ssh/${GUID}.pem
+   38    User ec2-user
+   39    StrictHostKeyChecking no
+   40  EOF
+   41  chmod go= -R ~/.ssh/
+   42  ssh frontend
+   43  ls
+   44  cd .ssh
+   45  cd
+   46  cd .ssh/
+   47  ls
+   48  at >~/.ssh/config <<EOF
+   49  Host *.${GUID}.internal
+   50    IdentityFile ~/.ssh/${GUID}.pem
+   51    User ec2-user
+   52    StrictHostKeyChecking no
+   53  EOF
+   54  chmod go= -R ~/.ssh/
+   55  cd .ssh
+   56  cd ~/.ssh/
+   57  ls
+   58  cat config 
+   59  ls
+   60  vim config 
+   61  ssh frontend1
+   62  chmod go= -R ~/.ssh/
+   63  ssh frontend1
+   64  echo ${GUID}
+   65  ssh frontend1
+   66  source ~/.ssh/config 
+   67  cd ~/.ssh/
+   68  ls
+   69  vim config 
+   70  cd
+   71  ls
+   72  cd bad-ansible/
+   73  ls
+   74  vim main.yml 
+   75  ansible-playbook main.yml
+   76  ls
+   77  ssh frontend1
+   78  cd
+   79  ssh frontend1
+   80  ls
+   81  cd ~/.ssh/
+   82  ls
+   83  cat config 
+   84  ls -al
+   85  chown bradley-csdef.com:bradley-csdef.com 8f40key.pem 
+   86  ssh frontend1
+   87  cat config 
+   88  chmod go= -R ~/.ssh/
+   89  ssh frontend1
+   90  ssh frontend1.8f40.example.com
+   91  chmod 440 8f40key.pem 
+   92  ssh frontend`
+   93  Cccccc
+   94  '
+   95  j`
+   96  ssh frontend
+   97  ssh -vvv frontend
+   98  ls
+   99  ssh --help
+  100  ssh -i 8f40key.pem frontend1
+  101  ls
+  102  chmod 600 8f40key.pem 
+  103  ssh -i 8f40key.pem frontend1
+  104  ssh -vvv -i 8f40key.pem frontend1
+  105  ls
+  106  rm known_hosts 
+  107  ssh -vvv -i 8f40key.pem frontend1
+  108  ssh -i 8f40key.pem frontend1
+  109  ssh -i 8f40key.pem ec2-user@frontend1
+  110  vim config 
+  111  cat config 
+  112  ssh -i 8f40key.pem frontend1.8f40.internal
+  113  ansible-playbook main.yml
+  114  cd 
+  115  ls
+  116  cd bad-ansible/
+  117  ls
+  118  ansible-playbook main.yml
+  119  history
+  120  ls
+  121  vim hosts 
+  122  ansible ping frontend
+  123  cat hosts 
+  124  ansible frotneds ping frontend1
+  125  ansible frotneds -m ping frontend1
+  126  ansible frontends -m ping
+  127  ls
+  128  ansible-playbook main.yml
+  129  ansible-playbook main.yml  -e "GUID=${GUID}"
+  130  ls
+  131  pwd
+  132  ls
+  133  ansible-playbook main.yml -vv  -e "GUID=${GUID}"
+  134  ssh app1.8f40.internal
+  135  ssh frontend1.8f40.internal
+  136  ssh app1.8f40.internal
+  137  ls
+  138  cd bad-ansible/
+  139  ls
+  140  cat README.adoc 
+  141  ls
+  142  cat /etc/ansible/ansible.cfg 
+  143  vim /etc/ansible/ansible.cfg 
+  144  cat README.adoc 
+  145  vim README.adoc 
+  146  ssh app2
+  147  sudo su - 
+  148  ls
+  149  cd bad-ansible/
+  150  ls
+  151  vim hosts 
+  152  cat hosts
+  153  cd 
+  154  ls
+  155  cd bad-ansible/
+  156  ls
+  157  vim main.yml 
+  158  cat hosts
+  159  ls
+  160  vim main.yml 
+  161  hostname
+  162  vim main.yml 
+  163  cd bad-ansible/
+  164  ansible-playbook main.yml 
+  165  ansible-playbook main.yml # -e "GUID=${GUID}"
+  166  ansible-playbook main.yml -e "GUID=${GUID}"
+  167  export GUID=`hostname | awk -F"." '{print $2}'`
+  168  ansible-playbook -vv main.yml -e "GUID=${GUID}"
+  169  curl http://frontend1.${GUID}.example.opentlc.com
+  170  ansible-playbook -vv main.yml -e "GUID=${GUID}"
+  171  curl http://frontend1.${GUID}.example.opentlc.com
+  172  openssl s_client -connect frontend1.8f40.example.opentlc.com:80
+  173  ssh -p 80 frontend1.8f40.example.opentlc.com
+  174  ansible-playbook -vv main.yml -e "GUID=${GUID}"
+  175  curl http://frontend1.${GUID}.example.opentlc.com
+  176  cat /etc/hosts
+  177  cat /etc/ansible/hosts
+  178  ansible-playbook -vv main.yml -e "GUID=${GUID}"
+  179  cat hosts
+  180  ssh frontend1."{{ GUID }}".internal
+  181  ls
+  182  cat hosts
+  183  ansible-playbook -vv main.yml -e "GUID=${GUID}"
+  184  curl http://frontend1.${GUID}.example.opentlc.com
+  185  ansible-playbook -vv main.yml -e "GUID=${GUID}"
+  186  curl http://frontend1.${GUID}.example.opentlc.com
+  187  ansible-playbook -vv main.yml -e "GUID=${GUID}"
+  188  cat hosts
+  189  ansible-playbook -vv main.yml -e "GUID=${GUID}"
+  190  curl http://frontend1.${GUID}.example.opentlc.com
+  191  ansible-playbook -vv main.yml -e "GUID=${GUID}"
+  192  grep -ri 80 *
+  193  vim haproxy.cfg.j2 
+  194  ansible-playbook -vv main.yml -e "GUID=${GUID}"
+  195  vim haproxy.cfg.j2 
+  196  grep http *
+  197  vim cleanup.yml 
+  198  vim haproxy.cfg.j2 
+  199  cd bad-ansible/
+  200  vim index.html.j2 
+  201  curl http://frontend1.${GUID}.example.opentlc.com
+  202  exit
+  203  ls
+  204  cd bad-ansible/
+  205  ls
+  206  vim ansible.cfg 
+  207  ssh appdb1
+  208  cat hosts 
+  209  vim main.yml 
+  210  rm .main.yml.swp 
+  211  vim main.yml 
+  212  ansible-playbook -vv main.yml -e "GUID=${GUID}"
+  213  cd bad-ansible/
+  214  history
+  215  export GUID=`hostname | awk -F"." '{print $2}'`
+  216  ansible-playbook -vv main.yml -e "GUID=${GUID}"
+  217  curl http://frontend1.${GUID}.example.opentlc.com
+  218  ls
+  219  cd bad-ansible/
+  220  ls
+  221  vim main.yml.workin 
+  222  vim main.yml
+  223  cd ../
+  224  ls
+  225  cd good/my-ansible-repo/
+  226  ls
+  227  cd roles/
+  228  ls
+  229  cd frontends/
+  230  ls
+  231  cd ..
+  232  ls
+  233  cd ..
+  234  ls
+  235  cd ..
+  236  ls
+  237  cd bad-ansible/roles/frontends/
+  238  ls
+  239  cd tasks/
+  240  ls
+  241  vim main.yml 
+  242  exit
+  243  ls
+  244  cat /etc/ansible/hosts 
+  245  vim /etc/ansible/hosts 
+  246  ansible-playbook -vv main.yml -e "GUID=${GUID}"
+  247  export GUID=`hostname | awk -F"." '{print $2}'`
+  248  ansible-playbook -vv main.yml -e "GUID=${GUID}"
+  249  cd bad-ansible/
+  250  ls
+  251  ansible-playbook -vv main.yml -e "GUID=${GUID}"
+  252  ls
+  253  vim main.yml 
+  254  cp main.yml main.yml.workin
+  255  vim main.yml
+  256  cd ..
+  257  ls
+  258  mkdir good
+  259  cd good/
+  260  git clone https://github.com/jkupferer/bad-ansible.git my-ansible-repo
+  261  ls
+  262  cd my-ansible-repo/
+  263  ls
+  264  vim main.yml 
+  265  ls
+  266  vim inventory/
+  267  ls
+  268  cd roles/
+  269  ls
+  270  cd ..
+  271  ls
+  272  cd ..
+  273  ls
+  274  cd ..
+  275  ls
+  276  cd bad-ansible/
+  277  vim main.yml
+  278  ls
+  279  cp main.yml.workin mainw.yml
+  280  ansible-playbook -vv mainw.yml -e "GUID=${GUID}"
+  281  cp mainw.yml main.yml
+  282  vim main.yml
+  283  cd ..
+  284  ls
+  285  cd good/my-ansible-repo/
+  286  ls
+  287  vim main.yml 
+  288  cd roles/
+  289  ls
+  290  cd opentlc_yum/
+  291  ls
+  292  cd tasks/
+  293  ls
+  294  cat main.yml 
+  295  ls
+  296  cd ..
+  297  ls
+  298  cd ..
+  299  ls
+  300  cd ..
+  301  ls
+  302  cd ..
+  303  ls
+  304  cd good/
+  305  ls
+  306  cd my-ansible-repo/
+  307  ls
+  308  vim main.yml 
+  309  ls
+  310  cd inventory/
+  311  ls
+  312  cat hosts.py 
+  313  ls
+  314  cd ..
+  315  ls
+  316  cd roles/
+  317  ls
+  318  cd frontends/
+  319  ls
+  320  cd defaults/
+  321  ls
+  322  cat main.yml 
+  323  ls
+  324  cd ..
+  325  ls
+  326  vicd templates/
+  327  ls
+  328  cd templates/
+  329  ls
+  330  cat haproxy.cfg.j2 
+  331  cd ..
+  332  ls
+  333  cd ..
+  334  ls
+  335  cd ..
+  336  ls
+  337  vim main.yml 
+  338  cd roles/
+  339  ls
+  340  cd frontends/
+  341  ls
+  342  cd tasks/
+  343  ls
+  344  cat main.yml 
+  345  cd ..
+  346  ls
+  347  cd handlers/
+  348  ls
+  349  cat main.yml 
+  350  cd ..
+  351  ls
+  352  cd frontends/
+  353  ls
+  354  cd templates/
+  355  ls
+  356  cd ..
+  357  cd tasks/
+  358  ls
+  359  cat main.yml n
+  360  ls
+  361  cd ..
+  362  ls
+  363  cd ..
+  364  ls
+  365  cd ..
+  366  ls
+  367  vim main.yml 
+  368  cd ..
+  369  ls
+  370  cd ..
+  371  ls
+  372  cd good/my-ansible-repo/
+  373  ls
+  374  cd roles/
+  375  ls
+  376  cd frontends/
+  377  ls
+  378  vim tasks/main.yml 
+  379  exit
+  380  cd bad-ansible/
+  381  ls
+  382  vim main.yml
+  383  ls
+  384  cd roles/
+  385  ls
+  386  galaxy init frontend
+  387  ansible-galaxy init frontend
+  388  ls
+  389  cd frontend/
+  390  ls
+  391  rm -rf README.md 
+  392  ls
+  393  cd ..
+  394  ls
+  395  cd class_yum/
+  396  ls
+  397  cd tasks/
+  398  ls
+  399  vim main.yml 
+  400  cp /etc/yum.repos.d/open_three-tier-app.repo main.yml  ../files/
+  401  ls
+  402  vim main.yml 
+  403  cd ..
+  404  ls
+  405  cd ..
+  406  ls
+  407  rm -rf haproxy/
+  408  cd frontend/
+  409  ls
+  410  cd handlers/
+  411  cp ../../../index.html.j2 .
+  412  ls
+  413  mv index.html.j2 ../templates/
+  414  ls
+  415  cd ..
+  416  ls
+  417  cd tasks/
+  418  ls
+  419  vim main.yml 
+  420  cd ..
+  421  ls
+  422  cd ..
+  423  ls
+  424  mv frontend/ frontends
+  425  ls
+  426  cd frontends/
+  427  ls
+  428  cd handlers/
+  429  vim main.yml 
+  430  ls
+  431  exit
+  432  ls
+  433  cat myinventory.file 
+  434  cd ..
+  435  ls
+  436  cd bradley-csdef.com/
+  437  ls
+  438  cd bad-ansible/
+  439  ls
+  440  vim main.yml 
+  441  rm .main.yml.swp 
+  442  vim main.yml 
+  443  cat hosts
+  444  cat /etc/ansible/hosts 
+  445  ls
+  446  mkdir roles
+  447  cd roles/
+  448  ansible-galaxy init web
+  449  ansible-galaxy init haprox
+  450  rm -rf haprox
+  451  ansible-galaxy init haproxy
+  452  cd web/
+  453  ls
+  454  cd tasks/
+  455  ls
+  456  vim main.yml 
+  457  ls
+  458  cd ..
+  459  ls
+  460  newmain.yml
+  461  vim newmain.yml
+  462  cd ..
+  463  ls
+  464  cd ..
+  465  ls
+  466  vim main.yml
+  467  ls
+  468  vim main.yml
+  469  vim newmain.yml
+  470  ansible-playbook -vv main.yml -e "GUID=${GUID}"
+  471  vim main.yml
+  472  rm .main.yml.
+  473  rm .main.yml.swp 
+  474  vim main.yml
+  475  ansible-playbook -vv main.yml -e "GUID=${GUID}"
+  476  vim main
+  477  vim main.yml
+  478  ls
+  479  cd roles/
+  480  ls
+  481  ansible-playbook -vv main.yml -e "GUID=${GUID}"
+  482  cd ..
+  483  ls
+  484  ansible-playbook -vv main.yml -e "GUID=${GUID}"
+  485  vim main
+  486  vim main.yml
+  487  ansible-playbook -vv main.yml -e "GUID=${GUID}"
+  488  exit
+  489  ls
+  490  cd bad-ansible/
+  491  ls
+  492  ansible-playbook roles/web/tasks/main.yml 
+  493  ansible-playbook roles/web/tasks/main.yml -vv
+  494  ansible-playbook -vv main.yml -e "GUID=${GUID}"
+  495  ansible-playbook roles/web/tasks/main.yml 
+  496  ansible-playbook -vv main.yml -e "GUID=${GUID}"
+  497  ansible-playbook roles/web/tasks/main.yml 
+  498  cd ..
+  499  ls
+  500  cd bad-ansible/
+  501  ls
+  502  pwd
+  503  mkdir roles
+  504  ls
+  505  cd roles/
+  506  ls
+  507  ansible-galaxy init class_yum
+  508  s
+  509  ls
+  510  cd class_yum/
+  511  ls
+  512  rm README.md 
+  513  ls
+  514  cd tasks/
+  515  ls
+  516  vim main.yml 
+  517  ls
+  518  pwd
+  519  cd ..
+  520  ls
+  521  cd ..
+  522  ls
+  523  cd ..
+  524  ls
+  525  vim main.yml
+  526  vim mainw.yml 
+  527  grep yum *
+  528  grep include *
+  529  vim main.yml
+  530  cd .ssh/
+  531  ls
+  532  cat 8f40key.pem 
+  533  exit
+  534  ssh bastion.8f40.example.opentlc.com
+  535  ssh -v bastion.8f40.example.opentlc.com
+  536  exit
+  537  curl -O http://mirror.centos.org/centos/7/updates/x86_64/Packages/subscription-manager-rhsm-certificates-1.24.13-3.el7.centos.x86_64.rpm
+  538  sudo yum remove python-rhsm-certificates
+  539  sudo yum install subscription-manager-rhsm-certificates-1.24.13-3.el7.centos.x86_64.rpm 
+  540  sudo su - 
+  541  ls
+  542  git push 
+  543  history | grep git
+  544  cat .ssh/8f40key.pem 
+  545  ls
+  546  cd good/my-ansible-repo/
+  547  ls
+  548  cd inventory/
+  549  ls
+  550  python hosts.py 
+  551  python hosts.py --list
+  552  ls
+  553  chmod hosts.py 
+  554  chmod 755 hosts.py 
+  555  ./hosts.py 
+  556  ./hosts.py --host frontend
+  557  ls
+  558  cat /etc/ansible/hosts 
+  559  pwd
+  560  ls
+  561  sudo su -
+  562  ls
+  563  cd bad-ansible/
+  564  l
+  565  ls
+  566  mkdir inventory
+  567  cd inventory/
+  568  ls
+  569  cp /etc/ansible/hosts .
+  570  git add -A *
+  571  ls
+  572  cd ..
+  573  ls
+  574  git add -A *
+  575  git commit -m "going to"
+  576  git push
+  577  git push https://gitlab.com/bradley7/bradg.git
+  578  hitory | rep git
+  579  hitory | grep git
+  580  history | grep git
+  581  git push https://github.com/bradbradley/bad-ansible.git redhat
+  582  git config --global user.email "bradley@csdef.com"
+  583  git push https://github.com/bradbradley/bad-ansible.g
+  584  git push git@git@gitl
+  585  git remote add ansible git@gitlab.com:bradley7/bad-ansible.git
+  586  git push ansible master 
+  587  git remote add ansible git@github.com/bradbradley/bad-ansible.git
+  588  git remote remove ansible 
+  589  git remote add ansible git@github.com/bradbradley/bad-ansible.git
+  590  git push ansible master 
+  591  cd ..
+  592  ls
+  593  cp -rp bad-ansible/ bad-ansible.old
+  594  cd bad-ansible
+  595  cd ..
+  596  ls
+  597  cp -cp good/my-ansible-repo/ bad-ansible
+  598  cp -rp good/my-ansible-repo/ bad-ansible
+  599  ls
+  600  cd bad-ansible
+  601  ls
+  602  mv my-ansible-repo/ ..
+  603  ls
+  604  cd ..
+  605  ls
+  606  rm -rf bad-ansible
+  607  cp -rp bad-ansible.old/ bad-ansible.old/
+  608  cp -rp bad-ansible.old/ bad-ansible
+  609  cd bad-ansible
+  610  ls
+  611  rm -rf inventory/
+  612  cp -r ../my-ansible-repo//inventory/ .
+  613  ls
+  614  cp /etc/ansible/hosts  .
+  615  cp -r ../my-ansible-repo//inventory/ .
+  616  git remote remove ansible 
+  617  git remote add ansible https://github.com/bradbradley/bad-ansible.git
+  618  git remote -v
+  619  git push ansible master
+  620  git remote add ansible git@github.com/bradbradley/bad-ansible.git
+  621  git remote remove ansible
+  622  git remote add ansible git@github.com/bradbradley/bad-ansible.git
+  623  git push ansible master
+  624  git remote remove ansible
+  625  git remote add ansible git@github.com:bradbradley/bad-ansible.git
+  626  git push ansible master
+  627  git pull ansible
+  628  git remote pull git@github.com:bradbradley/bad-ansible.git
+  629  git pull git@github.com:bradbradley/bad-ansible.git
+  630  git checkout
+  631  git checkout git@github.com:bradbradley/bad-ansible.git
+  632  git checkout github.com:bradbradley/bad-ansible.git
+  633  git checkout ansible
+  634  history | grep clone
+  635  git pull https://github.com/bradbradley/bad-ansible.git
+  636  ls
+  637  pwd
+  638  cd ..
+  639  ls
+  640  git pull https://github.com/bradbradley/bad-ansible.git
+  641  cd ..
+  642  ls
+  643  cd bradley-csdef.com/
+  644  ls
+  645  cd bad-ansible
+  646  ls
+  647  git add -A *
+  648  git commit -m "do it"
+  649  pwd
+  650  git push https://github.com/bradbradley/bad-ansible.git
+  651  cd bad-ansible
+  652  ls
+  653  vim main.yml
+  654  exit
+  655  ls
+  656  cd bad-ansible
+  657  ls
+  658  cd roles/
+  659  ls
+  660  cd frontends/
+  661  ls
+  662  cd handlers/
+  663  ls
+  664  cat main.yml 
+  665  cd ..
+  666  ls
+  667  cd ..
+  668  ls
+  669  cd ..
+  670  ls
+  671  vim ansible.cfg 
+  672  cat main.yml
+  673  ansible-playbook -vv main.yml -e "GUID=${GUID}"
+  674  vim main.yml
+  675  ansible-playbook -vv main.yml -e "GUID=${GUID}"
+  676  ls
+  677  cat ssh.cfg 
+  678  ls
+  679  vim ssh.cfg 
+  680  ansible-playbook -vv main.yml -e "GUID=${GUID}"
+  681  exit
+  682  ls
+  683  cd .ssh/
+  684  ls
+  685  cat config 
+  686  exit
+  687  ls
+  688  cp -rp my-ansible-repo/ bad-ansible
+  689  cp  /tmp/tower.roles.tar bad-ansible/
+  690  history >> bad-ansible/bastion-3-teir-app

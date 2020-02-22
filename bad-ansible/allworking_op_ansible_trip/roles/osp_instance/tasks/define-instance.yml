@@ -1,0 +1,35 @@
+---
+#- name: Create a server Instance "{{ osp_instance.name }}"
+- name: Create a server instance
+  os_server:
+    cloud: "{{ osp_cloud }}"
+    name: "{{ osp_instance.name }}"
+    image: "{{ osp_instance.image }}"
+    key_name: "{{ osp_instance.key_name }}"
+    flavor: "{{ osp_instance.flavor }}"
+    meta: "{{ osp_instance.meta }}"
+    security_groups: "{{ osp_instance.security_groups }}"
+    auto_ip: True
+    nics:
+    #- net-name: int_networkk
+    - net-name: "{{ osp_instance.network }}" 
+      #network: int_network
+       #meta:
+       #  hostname: app1
+       #  group: QA
+#  - name: Adding in the user data
+    userdata: |
+      #/bin/bash
+      curl -o /tmp/openstack.pub http://www.opentlc.com/download/ansible_bootcamp/openstack_keys/openstack.pub
+      cat /tmp/openstack.pub >> /home/cloud-user/.ssh/authorized_keys
+      curl -o /tmp/internal.repo http://www.opentlc.com/download/ansible_bootcamp/repo/internal.repo
+      cp /tmp/internal.repo /etc/yum.repos.d/internal.repo
+#- name: Add floating IP to "{{ osp_instance.name }}"
+- name: Adding the floating IP "{{ osp_instance.name }}"
+  os_floating_ip:
+    cloud: "{{ osp_cloud }}"
+    state: present
+    server: "{{ osp_instance.name }}"
+    network: "{{ osp_instance.floating_ip_network }}"
+    wait: True
+    timeout: 180

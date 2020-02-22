@@ -1,0 +1,17 @@
+- name: Deploy on OpenStack
+  hosts: localhost
+  gather_facts: false
+  tasks:
+   - name: launch app1
+     os_server:
+       state: present
+       name: app1
+       image: rhel-guest
+       key_name: ansible_ssh
+       wait: yes
+       flavor: m1.small
+       auto_ip: yes
+       network: int_network
+       meta:
+         hostname: app1
+         group: QA

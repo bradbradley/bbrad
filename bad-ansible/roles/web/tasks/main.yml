@@ -1,0 +1,19 @@
+---
+# tasks file for web
+#- name: deploy apache
+#  hosts: frontends
+#  gather_facts: true
+#hosts: apps
+#  become: true
+- name: install the latest version of Apache
+    yum:
+      name: httpd
+      state: present
+- name: enable apache at boot
+  service:
+    name: httpd
+    enabled: yes
+- name: Make sure a service is running
+  systemd:
+    state: started
+    name: httpd

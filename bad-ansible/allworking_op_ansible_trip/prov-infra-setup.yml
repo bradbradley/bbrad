@@ -1,0 +1,6 @@
+---
+- name: OpenStack Lab Infrastructure Setup
+  hosts: localhost
+  gather_facts: True
+  roles:
+  - osp_instance

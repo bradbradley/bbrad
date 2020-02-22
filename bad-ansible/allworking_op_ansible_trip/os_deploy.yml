@@ -1,0 +1,110 @@
+- name: Deploying Cloud App1 
+  hosts: localhost
+  connection: local
+#- name: Configure Openstack
+#  hosts: loc
+#  become: true
+  tasks:
+  - name: Going to setup an Image
+    include_role:
+      name: images 
+
+  - name: Adding in flavor 
+    include_role:
+      name: flavors 
+  - name: Getting the Keypair
+    include_role:
+      name: keypair 
+#  - name: Creating and add Sec Groups
+#    include_role:
+#      name: secgroup 
+  - name: Creating Networks 
+    include_role:
+      name: network 
+   # hosts: loc
+  #os_project:
+  #   cloud: ospcloud
+  #   state: present
+  #   name: QA
+#tasks:
+#  - name: Create openstack image
+#    os_image:
+#       cloud: ospcloud
+#       name: rhel-guest
+#       container_format: bare
+#       disk_format: qcow2
+#       state: present
+#       filename: /tmp/rhel.qcow2
+#- name: Create a keypair
+# os_keypair:
+#     cloud: ospcloud
+#     state: present
+#     name: ansible_ssh
+#- name: create a m2.small
+#  os_nova_flavor:
+#     cloud: ospcloud
+#     state: present
+#     name: m2.small
+#- os_floating_ip:
+#     cloud: ospcloud
+#     state: present
+#     server: placeholderapps1
+#     network: ext_network
+#     nat_destination: private_net 
+#     wait: true
+#     timeout: 180
+#- os_network:
+#     cloud: ospcloud
+#     state: present
+#     name: int_network
+#     admin_state_up: True 
+#     external: False
+#- os_subnet:
+#     state: present
+#     network_name: Private
+#     name: int_network
+#     cider: 20.20.20.0/24
+#     allocation_pool_start: 20.20.20.1
+#     allocation_pool_end: 20.20.20.252
+#- os_image:
+#     cloud: ospcloud
+#     name: rhel-guest
+#     disk_format: qcow2
+#     state: present
+#- os_security_group:
+#     cloud: ospcloud
+#     state: present
+#     name: apps
+#- os_security_group_rule:
+#     cloud: ospcloud
+#     security_group: apps
+#     protocol: icmp
+#     remote_ip_prefix: 0.0.0.0/0
+#     project: QA
+#- os_security_group_rule:
+#     cloud: ospcloud
+#     security_group: apps
+#     portocol: tcp
+#     port_range_min: 8080
+#     port_range_max: 8080 
+#     remote_ip_prefix: 0.0.0.0/0
+#- os_security_group_rule:
+#     cloud: ospcloud
+#     security_group: apps
+#     portocol: tcp
+#     port_range_min: 22
+#     port_range_max: 22 
+#     remote_ip_prefix: 0.0.0.0/0
+
+#Metadata: group=apps, deployment_name=QA
+#Ports Open: 8080/tcp, 22/tcp, icmp
+#Security Group: apps
+#Name: app1
+#Metadata: group=apps, deployment_name=QA
+#Flavor: m2.small
+#Keypair: ansible_ssh
+#Networks: Private(int_network): 20.20.20.0/24
+#Floating IP Addesses: Network Name: ext_network
+#Image: rhel-guest
+#Ports Open: 8080/tcp, 22/tcp, icmp
+#Security Group: apps
